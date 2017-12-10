@@ -5,14 +5,14 @@
 #include <QTcpSocket>
 #include <QDebug>
 
-#define PORTPARDEFAUT 2222
+#define PORTPARDEFAUT 5555
 
 class CServeurTcp : public QTcpServer
 {
     Q_OBJECT
 public:
     explicit CServeurTcp(QObject *parent = 0);
-    explicit CServeurTcp(QObject *parent = 0, quint16 noPort = 2222);
+    explicit CServeurTcp(QObject *parent = 0, quint16 noPort = PORTPARDEFAUT);
     ~CServeurTcp();
     int emettreVersClients(QString mess);
 

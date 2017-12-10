@@ -7,7 +7,7 @@
 #include <QList>
 #include "cserveurtcp.h"
 
-#define PORT 2222
+#define PORT 5555
 
 namespace Ui {
 class CIhmAppServeurTcp;

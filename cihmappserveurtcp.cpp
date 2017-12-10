@@ -6,6 +6,7 @@ CIhmAppServeurTcp::CIhmAppServeurTcp(QWidget *parent) :
     ui(new Ui::CIhmAppServeurTcp)
 {
     ui->setupUi(this);
+    ui->lTexte->setText("Port "+PORT);
     ui->pbEnvoyer->setEnabled(false);
 
     serv = new CServeurTcp(this, PORT);

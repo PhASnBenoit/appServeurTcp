@@ -54,7 +54,7 @@ void CServeurTcp::onNewConnectionClient()
     connect(newClient, SIGNAL(disconnected()), this, SLOT(onDisconnectedClient()));
     listeClients.append(newClient);  // sauve l'adresse de l'objet dans la liste
     emit sigEvenementServeur("CON");
-    emit sigAdrClient(newClient->localAddress().toString());
+    emit sigAdrClient(newClient->peerAddress().toString());
     emit sigMaJClients(listeClients);  // pour IHM
 }
 
@@ -83,6 +83,6 @@ void CServeurTcp::onReadyReadClient()
     if (nb == -1)
         qDebug() << "ERREUR ENVOI";
     qDebug() << "Client : " << client << ba.size() << " Caractères reçus.";
-    emit sigDataClient(client->localAddress().toString(), QString(ba));
+    emit sigDataClient(client->peerAddress().toString(), QString(ba));
 }
 
