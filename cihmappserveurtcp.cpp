@@ -6,7 +6,7 @@ CIhmAppServeurTcp::CIhmAppServeurTcp(QWidget *parent) :
     ui(new Ui::CIhmAppServeurTcp)
 {
     ui->setupUi(this);
-    ui->lTexte->setText("Port "+PORT);
+    ui->lTexte->setText("Port d'écoute : "+QString::number(PORT,10));
     ui->pbEnvoyer->setEnabled(false);
 
     serv = new CServeurTcp(this, PORT);

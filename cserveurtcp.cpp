@@ -76,10 +76,12 @@ void CServeurTcp::onErreurReseau(QAbstractSocket::SocketError err)
 void CServeurTcp::onReadyReadClient()
 {
     QByteArray ba;
+    QString mess;
     // Déterminer quel client ?
     QTcpSocket *client = (QTcpSocket *)sender();
     ba=client->readAll();
-    int nb = client->write("OK");
+    mess = "Données reçues par le serveur "+client->localAddress().toString();
+    int nb = client->write(mess.toStdString().c_str());
     if (nb == -1)
         qDebug() << "ERREUR ENVOI";
     qDebug() << "Client : " << client << ba.size() << " Caractères reçus.";
